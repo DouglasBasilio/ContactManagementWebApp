@@ -16,9 +16,8 @@ namespace ContactManagementWebApp.Controllers
 
         public IActionResult Index()
         {
-
-            return Json(_dbContext.Customers);
-
+            var customers = _dbContext.Customers.ToList();
+            return View(customers);
         }
 
         public IActionResult Privacy()
