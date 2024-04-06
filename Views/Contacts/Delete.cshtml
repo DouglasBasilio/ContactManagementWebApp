@@ -1,0 +1,15 @@
+﻿@model ContactManagementWebApp.Models.Contact
+
+<h1>Confirmar Exclusão</h1>
+
+<div>
+    <h4>Nome: @Model.Name</h4>
+    <h4>Número de Contato: @Model.ContactNumber</h4>
+    <h4>Endereço de E-mail: @Model.EmailAddress</h4>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="ID" />
+    <button type="submit" class="btn btn-danger">Confirmar Exclusão</button>
+    <a asp-action="Index">Cancelar</a>
+</form>

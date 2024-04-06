@@ -1,0 +1,12 @@
+﻿@model ContactManagementWebApp.Models.Contact
+
+<h1>Detalhes do Contato</h1>
+
+<div>
+    <h4>Nome: @Model.Name</h4>
+    <h4>Número de Contato: @Model.ContactNumber</h4>
+    <h4>Endereço de E-mail: @Model.EmailAddress</h4>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.ID">Editar</a> |
+<a asp-action="Delete" asp-route-id="@Model.ID">Excluir</a>
