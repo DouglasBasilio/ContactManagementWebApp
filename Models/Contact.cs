@@ -17,5 +17,7 @@ namespace ContactManagementWebApp.Models
         [Required(ErrorMessage = "Email address is required.")]
         [EmailAddress(ErrorMessage = "Invalid email address.")]
         public string EmailAddress { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }
