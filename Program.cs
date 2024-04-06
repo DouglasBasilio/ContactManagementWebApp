@@ -1,41 +1,52 @@
 using ContactManagementWebApp;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("MariaDB"); 
+builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+var serverVersion = new MySqlServerVersion(new Version(8, 0, 26));
+
+var connectionString = builder.Configuration.GetConnectionString("MariaDB");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+    options.UseMySql(connectionString, serverVersion)
+);
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
-builder.Services.AddRazorPages();
-
+// Add services to the container.
+builder.Services.AddControllersWithViews();
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+
+using (var scope = app.Services.CreateScope())
 {
-    app.UseMigrationsEndPoint();
-}
-else
-{
-    app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    var services = scope.ServiceProvider;
+    var dbContext = services.GetService<ApplicationDbContext>();
+
+    if (dbContext != null && dbContext.Database.GetDbConnection().State != ConnectionState.Open)
+    {
+        dbContext.Database.OpenConnection();
+
+        // Run EnsureCreated() to create the database and any pending migrations
+        dbContext.Database.EnsureCreated();
+    }
+
 }
 
-app.UseHttpsRedirection();
+
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error");
+}
 app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapRazorPages();
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
