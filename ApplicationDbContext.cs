@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql;
-using ContactManagementWebApp.Models;
 
-namespace ContactManagementWebApp.Data
+namespace ContactManagementWebApp
 {
     public class ApplicationDbContext : DbContext
     {
@@ -15,7 +14,7 @@ namespace ContactManagementWebApp.Data
         {
         }
 
-        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Contact> Contact { get; set; }
 
     }
 }

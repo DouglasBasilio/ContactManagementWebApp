@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using ContactManagementWebApp.Models;
+﻿using ContactManagementWebApp.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ContactManagementWebApp.Data;
+using System.Diagnostics;
 
 namespace ContactManagementWebApp.Controllers
 {
@@ -17,7 +17,7 @@ namespace ContactManagementWebApp.Controllers
         // GET: Contacts
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Contacts.ToListAsync());
+            return View(await _context.Contact.ToListAsync());
         }
 
         // GET: Contacts/Create
@@ -48,7 +48,7 @@ namespace ContactManagementWebApp.Controllers
                 return NotFound();
             }
 
-            var contact = await _context.Contacts.FindAsync(id);
+            var contact = await _context.Contact.FindAsync(id);
             if (contact == null)
             {
                 return NotFound();
@@ -97,7 +97,7 @@ namespace ContactManagementWebApp.Controllers
                 return NotFound();
             }
 
-            var contact = await _context.Contacts
+            var contact = await _context.Contact
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (contact == null)
             {
@@ -112,15 +112,24 @@ namespace ContactManagementWebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var contact = await _context.Contacts.FindAsync(id);
-            _context.Contacts.Remove(contact);
-            await _context.SaveChangesAsync();
+            var contact = await _context.Contact.FindAsync(id);
+            if (contact != null)
+            {
+                _context.Contact.Remove(contact);
+                await _context.SaveChangesAsync();
+            }
             return RedirectToAction(nameof(Index));
         }
 
         private bool ContactExists(int id)
         {
-            return _context.Contacts.Any(e => e.ID == id);
+            return _context.Contact.Any(e => e.ID == id);
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

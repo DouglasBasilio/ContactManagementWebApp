@@ -65,7 +65,6 @@ C:\git\ContactManagementWebApp\obj\Debug\net6.0\staticwebassets\msbuild.buildTra
 C:\git\ContactManagementWebApp\obj\Debug\net6.0\staticwebassets.pack.json
 C:\git\ContactManagementWebApp\obj\Debug\net6.0\staticwebassets.build.json
 C:\git\ContactManagementWebApp\obj\Debug\net6.0\staticwebassets.development.json
-C:\git\ContactManagementWebApp\obj\Debug\net6.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
 C:\git\ContactManagementWebApp\obj\Debug\net6.0\scopedcss\bundle\ContactManagementWebApp.styles.css
 C:\git\ContactManagementWebApp\obj\Debug\net6.0\scopedcss\projectbundle\ContactManagementWebApp.bundle.scp.css
 C:\git\ContactManagementWebApp\obj\Debug\net6.0\ContactManagementWebApp.csproj.CopyComplete
@@ -83,3 +82,4 @@ C:\git\ContactManagementWebApp\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
 C:\git\ContactManagementWebApp\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
 C:\git\ContactManagementWebApp\bin\Debug\net6.0\MySqlConnector.dll
 C:\git\ContactManagementWebApp\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\git\ContactManagementWebApp\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css

@@ -1,4 +1,4 @@
-using ContactManagementWebApp.Data;
+using ContactManagementWebApp;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 

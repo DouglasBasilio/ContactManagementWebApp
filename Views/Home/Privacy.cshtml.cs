@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace ContactManagementWebApp.Pages
+namespace ContactManagementWebApp.Views.Home
 {
     public class PrivacyModel : PageModel
     {
