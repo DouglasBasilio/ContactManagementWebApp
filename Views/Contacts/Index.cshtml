@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<ContactManagementWebApp.Models.Contact>
 
-<h1>Lista de Contatos</h1>
+<h1>Contact List</h1>
 
 <table class="table">
     <thead>
         <tr>
-            <th>Nome</th>
-            <th>Número de Contato</th>
-            <th>Endereço de E-mail</th>
-            <th>Ações</th>
+            <th>Name</th>
+            <th>Contact Number</th>
+            <th>Email Address</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -19,9 +19,9 @@
                 <td>@contact.ContactNumber</td>
                 <td>@contact.EmailAddress</td>
                 <td>
-                    <a asp-action="Details" asp-route-id="@contact.ID">Detalhes</a> |
-                    <a asp-action="Edit" asp-route-id="@contact.ID">Editar</a> |
-                    <a asp-action="Delete" asp-route-id="@contact.ID">Excluir</a>
+                    <a asp-action="Details" asp-route-id="@contact.ID">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@contact.ID">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@contact.ID">Delete</a>
                 </td>
             </tr>
         }

@@ -1,22 +1,22 @@
 ﻿@model ContactManagementWebApp.Models.Contact
 
-<h1>Adicionar Novo Contato</h1>
+<h1>Add New Contact</h1>
 
 <form asp-action="Create">
     <div class="form-group">
-        <label asp-for="Name">Nome:</label>
+        <label asp-for="Name">Name:</label>
         <input asp-for="Name" class="form-control" />
         <span asp-validation-for="Name" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="ContactNumber">Número de Contato:</label>
+        <label asp-for="ContactNumber">Contact Number:</label>
         <input asp-for="ContactNumber" class="form-control" />
         <span asp-validation-for="ContactNumber" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="EmailAddress">Endereço de E-mail:</label>
+        <label asp-for="EmailAddress">Email Address:</label>
         <input asp-for="EmailAddress" class="form-control" />
         <span asp-validation-for="EmailAddress" class="text-danger"></span>
     </div>
-    <button type="submit" class="btn btn-primary">Adicionar Contato</button>
+    <button type="submit" class="btn btn-primary">Add Contact</button>
 </form>
