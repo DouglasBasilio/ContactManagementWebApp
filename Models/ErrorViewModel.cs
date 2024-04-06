@@ -1,4 +1,4 @@
-﻿namespace ContactManagementWebApp.Models
+﻿namespace Alfasoft.Models
 {
     public class ErrorViewModel
     {

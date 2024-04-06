@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "r44pph0ZYl1l2DH1pk5G1xMOP0gLhIxtDhO9xVx0MEEzy1g7q77bglVvrajjQjS2pPkXOnnSELJSQX+oN2yc1Q==",
+  "dgSpecHash": "ukzGH6eQT1B1ElfoOJ7sKVm1rvjNDz5H6qaEwZMx4etPXAs22BkGXMDzyPUV0Iy5gC7g0Y8AQEIa1gQ4Sr33oQ==",
   "success": true,
-  "projectFilePath": "C:\\git\\ContactManagementWebApp\\ContactManagementWebApp.csproj",
+  "projectFilePath": "C:\\git\\ContactManagementWebApp\\Alfasoft.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Douglas\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Douglas\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.4\\microsoft.entityframeworkcore.7.0.4.nupkg.sha512",

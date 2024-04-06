@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ContactManagementWebApp
+namespace Alfasoft
 {
     public class Customer
     {

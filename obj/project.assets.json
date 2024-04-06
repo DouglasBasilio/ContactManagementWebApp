@@ -1079,9 +1079,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\git\\ContactManagementWebApp\\ContactManagementWebApp.csproj",
-      "projectName": "ContactManagementWebApp",
-      "projectPath": "C:\\git\\ContactManagementWebApp\\ContactManagementWebApp.csproj",
+      "projectUniqueName": "C:\\git\\ContactManagementWebApp\\Alfasoft.csproj",
+      "projectName": "Alfasoft",
+      "projectPath": "C:\\git\\ContactManagementWebApp\\Alfasoft.csproj",
       "packagesPath": "C:\\Users\\Douglas\\.nuget\\packages\\",
       "outputPath": "C:\\git\\ContactManagementWebApp\\obj\\",
       "projectStyle": "PackageReference",

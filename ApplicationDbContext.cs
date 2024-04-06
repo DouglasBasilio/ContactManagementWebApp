@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql;
 
-namespace ContactManagementWebApp
+namespace Alfasoft
 {
     public class ApplicationDbContext : DbContext
     {
