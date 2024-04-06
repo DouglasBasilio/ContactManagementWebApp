@@ -5,19 +5,25 @@ using System.Diagnostics;
 
 namespace ContactManagementWebApp.Controllers
 {
-    public class ContactsController : Controller
+    public class HomeController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _dbContext;
 
-        public ContactsController(ApplicationDbContext context)
+        public HomeController(ApplicationDbContext dbContext)
         {
-            _context = context;
+            _dbContext = dbContext;
         }
 
-        // GET: Contacts
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.Contact.ToListAsync());
+
+            return Json(_dbContext.Customers);
+
+        }
+
+        public IActionResult Privacy()
+        {
+            return View();
         }
 
         // GET: Contacts/Create
@@ -29,12 +35,12 @@ namespace ContactManagementWebApp.Controllers
         // POST: Contacts/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,ContactNumber,EmailAddress")] Contact contact)
+        public async Task<IActionResult> Create([Bind("ID,Name,ContactNumber,EmailAddress")] Customer contact)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(contact);
-                await _context.SaveChangesAsync();
+                _dbContext.Add(contact);
+                await _dbContext.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(contact);
@@ -48,7 +54,7 @@ namespace ContactManagementWebApp.Controllers
                 return NotFound();
             }
 
-            var contact = await _context.Contact.FindAsync(id);
+            var contact = await _dbContext.Customers.FindAsync(id);
             if (contact == null)
             {
                 return NotFound();
@@ -59,7 +65,7 @@ namespace ContactManagementWebApp.Controllers
         // POST: Contacts/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,ContactNumber,EmailAddress")] Contact contact)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,ContactNumber,EmailAddress")] Customer contact)
         {
             if (id != contact.ID)
             {
@@ -70,8 +76,8 @@ namespace ContactManagementWebApp.Controllers
             {
                 try
                 {
-                    _context.Update(contact);
-                    await _context.SaveChangesAsync();
+                    _dbContext.Update(contact);
+                    await _dbContext.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -97,7 +103,7 @@ namespace ContactManagementWebApp.Controllers
                 return NotFound();
             }
 
-            var contact = await _context.Contact
+            var contact = await _dbContext.Customers
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (contact == null)
             {
@@ -112,18 +118,18 @@ namespace ContactManagementWebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var contact = await _context.Contact.FindAsync(id);
+            var contact = await _dbContext.Customers.FindAsync(id);
             if (contact != null)
             {
-                _context.Contact.Remove(contact);
-                await _context.SaveChangesAsync();
+                _dbContext.Customers.Remove(contact);
+                await _dbContext.SaveChangesAsync();
             }
             return RedirectToAction(nameof(Index));
         }
 
         private bool ContactExists(int id)
         {
-            return _context.Contact.Any(e => e.ID == id);
+            return _dbContext.Customers.Any(e => e.ID == id);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

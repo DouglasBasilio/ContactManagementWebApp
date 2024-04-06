@@ -14,7 +14,7 @@ namespace ContactManagementWebApp
         {
         }
 
-        public DbSet<Contact> Contact { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
     }
 }

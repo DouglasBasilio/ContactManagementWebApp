@@ -2,7 +2,7 @@
 
 namespace ContactManagementWebApp
 {
-    public class Contact
+    public class Customer
     {
         public int ID { get; set; }
 
