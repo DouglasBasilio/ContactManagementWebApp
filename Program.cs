@@ -17,7 +17,6 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddControllersWithViews();
 var app = builder.Build();
 
-
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -27,12 +26,9 @@ using (var scope = app.Services.CreateScope())
     {
         dbContext.Database.OpenConnection();
 
-        // Run EnsureCreated() to create the database and any pending migrations
-        dbContext.Database.EnsureCreated();
+        dbContext.Database.Migrate();
     }
-
 }
-
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
