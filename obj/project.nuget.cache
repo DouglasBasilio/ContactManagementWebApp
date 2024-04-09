@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "ukzGH6eQT1B1ElfoOJ7sKVm1rvjNDz5H6qaEwZMx4etPXAs22BkGXMDzyPUV0Iy5gC7g0Y8AQEIa1gQ4Sr33oQ==",
+  "dgSpecHash": "orke5OWiIGp4q3ylPF5+p6knK3jWCJ4YmSkeg2kL6piKthC2YDW2Ghjbb/+3d4VIMcUYW7cwOpluYzVx1K7u+w==",
   "success": true,
   "projectFilePath": "C:\\git\\ContactManagementWebApp\\Alfasoft.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Douglas\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Douglas\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.28\\microsoft.aspnetcore.cryptography.internal.6.0.28.nupkg.sha512",
+    "C:\\Users\\Douglas\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.28\\microsoft.aspnetcore.cryptography.keyderivation.6.0.28.nupkg.sha512",
+    "C:\\Users\\Douglas\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.28\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.28.nupkg.sha512",
     "C:\\Users\\Douglas\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.4\\microsoft.entityframeworkcore.7.0.4.nupkg.sha512",
     "C:\\Users\\Douglas\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.4\\microsoft.entityframeworkcore.abstractions.7.0.4.nupkg.sha512",
     "C:\\Users\\Douglas\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.4\\microsoft.entityframeworkcore.analyzers.7.0.4.nupkg.sha512",
@@ -17,6 +20,8 @@
     "C:\\Users\\Douglas\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\Douglas\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\Douglas\\.nuget\\packages\\microsoft.extensions.dependencymodel\\7.0.0\\microsoft.extensions.dependencymodel.7.0.0.nupkg.sha512",
+    "C:\\Users\\Douglas\\.nuget\\packages\\microsoft.extensions.identity.core\\6.0.28\\microsoft.extensions.identity.core.6.0.28.nupkg.sha512",
+    "C:\\Users\\Douglas\\.nuget\\packages\\microsoft.extensions.identity.stores\\6.0.28\\microsoft.extensions.identity.stores.6.0.28.nupkg.sha512",
     "C:\\Users\\Douglas\\.nuget\\packages\\microsoft.extensions.logging\\7.0.0\\microsoft.extensions.logging.7.0.0.nupkg.sha512",
     "C:\\Users\\Douglas\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\Douglas\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
