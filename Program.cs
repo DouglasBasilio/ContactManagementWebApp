@@ -1,4 +1,5 @@
 using Alfasoft;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
@@ -14,12 +15,26 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(connectionString, serverVersion)
 );
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+         .AddCookie(options =>
+         {
+             options.LoginPath = "/Account/Login/";
+
+         });
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+{
+    options.Password.RequiredLength = 6; // Configure as needed
+    options.Password.RequireNonAlphanumeric = false;
+})
+.AddEntityFrameworkStores<ApplicationDbContext>()
+.AddDefaultTokenProviders();
+
+builder.Services.AddMvc();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 var app = builder.Build();
-
 
 using (var scope = app.Services.CreateScope())
 {
@@ -33,10 +48,7 @@ using (var scope = app.Services.CreateScope())
         // Run EnsureCreated() to create the database and any pending migrations
         dbContext.Database.EnsureCreated();
     }
-
 }
-
-
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -48,8 +60,27 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthentication();
-
 app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "Create",
+    pattern: "Home/Create",
+    defaults: new { controller = "Home", action = "Create" });
+
+app.MapControllerRoute(
+    name: "Details",
+    pattern: "Home/Details/{id?}", // o parâmetro {id?} torna o ID opcional
+    defaults: new { controller = "Home", action = "Details" });
+
+app.MapControllerRoute(
+    name: "Delete",
+    pattern: "Home/Delete/{id?}", // o parâmetro {id?} torna o ID opcional
+    defaults: new { controller = "Home", action = "Delete" });
+
+app.MapControllerRoute(
+    name: "Edit",
+    pattern: "Home/Edit/{id?}", // o parâmetro {id?} torna o ID opcional
+    defaults: new { controller = "Home", action = "Edit" });
 
 app.MapControllerRoute(
     name: "default",
