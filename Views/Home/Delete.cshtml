@@ -1,15 +1,19 @@
 ﻿@model Alfasoft.Customer
 
-<h1>Confirmar Exclusão</h1>
+@{
+    ViewData["Title"] = "Alfasoft - Delete Customer";
+}
+
+<h1>Confirm Deletion</h1>
 
 <div>
-    <h4>Nome: @Model.Name</h4>
-    <h4>Número de Contato: @Model.ContactNumber</h4>
-    <h4>Endereço de E-mail: @Model.EmailAddress</h4>
+    <h4>Name: @Model.Name</h4>
+    <h4>Contact Number: @Model.ContactNumber</h4>
+    <h4>Email Address: @Model.EmailAddress</h4>
 </div>
-
+<br />
 <form asp-action="Delete">
     <input type="hidden" asp-for="ID" />
-    <button type="submit" class="btn btn-danger">Confirmar Exclusão</button>
-    <a asp-action="Index">Cancelar</a>
+    <button type="submit" class="btn btn-danger">Confirm Deletion</button>
+    <a asp-action="Index">Cancel</a>
 </form>

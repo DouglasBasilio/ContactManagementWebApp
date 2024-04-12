@@ -1,6 +1,13 @@
 ﻿@model IEnumerable<Alfasoft.Customer>
 
-<h1>Contact List</h1>
+@{
+    ViewData["Title"] = "Alfasoft - Index";
+}
+
+<h1>Customer List</h1>
+
+<a asp-action="Create" class="btn btn-primary">Add New Contact</a>
+<br />
 
 <table class="table">
     <thead>
