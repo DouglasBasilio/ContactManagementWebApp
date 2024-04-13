@@ -69,17 +69,17 @@ app.MapControllerRoute(
 
 app.MapControllerRoute(
     name: "Details",
-    pattern: "Home/Details/{id?}", // o parâmetro {id?} torna o ID opcional
+    pattern: "Home/Details/{id?}",
     defaults: new { controller = "Home", action = "Details" });
 
 app.MapControllerRoute(
     name: "Delete",
-    pattern: "Home/Delete/{id?}", // o parâmetro {id?} torna o ID opcional
+    pattern: "Home/Delete/{id?}",
     defaults: new { controller = "Home", action = "Delete" });
 
 app.MapControllerRoute(
     name: "Edit",
-    pattern: "Home/Edit/{id?}", // o parâmetro {id?} torna o ID opcional
+    pattern: "Home/Edit/{id?}",
     defaults: new { controller = "Home", action = "Edit" });
 
 app.MapControllerRoute(

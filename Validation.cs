@@ -12,7 +12,6 @@ namespace Alfasoft
             {
                 var customer = (Customer)validationContext.ObjectInstance;
 
-                // Verifica se já existe um contato com o mesmo número
                 if (dbContext.Customers.Any(c => c.ID != customer.ID && c.ContactNumber == (string)value))
                 {
                     return new ValidationResult("Contact number must be unique.");
@@ -33,7 +32,6 @@ namespace Alfasoft
             {
                 var customer = (Customer)validationContext.ObjectInstance;
 
-                // Verifica se já existe um contato com o mesmo endereço de e-mail
                 if (dbContext.Customers.Any(c => c.ID != customer.ID && c.EmailAddress == (string)value))
                 {
                     return new ValidationResult("Email address must be unique.");

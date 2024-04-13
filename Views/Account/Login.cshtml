@@ -16,7 +16,6 @@
         <input asp-for="Password" type="password" class="form-control" />
     </div>
     @{
-        // Adiciona um prefixo '/' à frente do returnUrl para garantir que seja uma URL absoluta
         string returnUrl = ViewData["ReturnUrl"]?.ToString();
     }
     <input type="hidden" name="ReturnUrl" value="@returnUrl" />
