@@ -15,11 +15,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(connectionString, serverVersion)
 );
 
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-         .AddCookie(options =>
+builder.Services.AddAuthentication("CookieAuthentication").AddCookie("CookieAuthentication", option =>
          {
-             options.LoginPath = "/Account/Login/";
-
+             option.LoginPath = "/Account/Login/";
          });
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>

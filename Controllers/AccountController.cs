@@ -27,9 +27,9 @@ namespace Alfasoft.Controllers
                     };
 
                     var userIdentity = new ClaimsIdentity(claims, "login");
-                    var principal = new ClaimsPrincipal(userIdentity);
-
-                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+                    
+                    ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
+                    await HttpContext.SignInAsync("CookieAuthentication", principal, new AuthenticationProperties());
 
                     if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
                     {
@@ -42,12 +42,18 @@ namespace Alfasoft.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Credenciais inválidas");
+                    TempData["erro"] = "Invalid credentials";
+                    return Redirect(returnUrl);
                 }
             }
 
             return View(model);
         }
 
+        public async Task<IActionResult> Logoff()
+        {
+            await HttpContext.SignOutAsync("CookieAuthentication");
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

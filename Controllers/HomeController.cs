@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Alfasoft.Controllers
 {
+    [Authorize(AuthenticationSchemes = "CookieAuthentication")]
     public class HomeController : Controller
     {
         private readonly ApplicationDbContext _dbContext;
@@ -31,7 +32,6 @@ namespace Alfasoft.Controllers
             return View();
         }
 
-        [AllowAnonymous]
         [Route("/Home/Create")]
         public IActionResult Create()
         {

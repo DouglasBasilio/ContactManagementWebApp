@@ -4,6 +4,13 @@
     ViewData["Title"] = "Alfasoft - Login";
 }
 
+@if(TempData["erro"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["erro"]
+    </div>
+}
+
 <h1>Login</h1>
 
 <form asp-action="Login" asp-controller="Account">
